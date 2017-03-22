@@ -30,7 +30,7 @@ public class Triangulo extends PuntosPadre {
      */
     public void darResultados() {
         if(isTriangulo() == true) {
-            System.out.println("Lado1: " + darLado1());
+            System.out.println("Lado1: " + darLado());
             System.out.println("Lado2: " + darLado2());
             System.out.println("Lado3: " + darLado3());
             System.out.println("Perimetro: " + darPermietro());
@@ -57,11 +57,9 @@ public class Triangulo extends PuntosPadre {
      * RETORNA LONGITUD DEL LADO AB
      * @return 
      */
-    private double darLado1(){
-        double auxiliarX = Math.pow(punto2.getX() - punto1.getX(), 2);
-        double auxiliarY = Math.pow(punto2.getY() - punto1.getY(), 2);
-        double lado = Math.sqrt(auxiliarX +  auxiliarY);
-        return lado;
+    @Override
+    public double darLado(){
+        return super.darLado();
     }
     /**
      * METODO RETORNA LONGITUD DEL LADO BC
@@ -88,7 +86,7 @@ public class Triangulo extends PuntosPadre {
      * @return Perimetro
      */
     private double darPermietro() {        
-        this.perimetro =  darLado1() + darLado2() + darLado3();
+        this.perimetro =  darLado() + darLado2() + darLado3();
         return this.perimetro;
     }
     /**
@@ -97,7 +95,7 @@ public class Triangulo extends PuntosPadre {
      */
     private double darArea() {
         double semiperimetro = this.perimetro / 2;
-        double lado1 = semiperimetro - darLado1();
+        double lado1 = semiperimetro - darLado();
         double lado2 = semiperimetro - darLado2();
         double lado3 = semiperimetro - darLado3();
         
@@ -110,9 +108,9 @@ public class Triangulo extends PuntosPadre {
      * @return Tipo de triangulo
      */
     public String darTipoTriangulo() {
-        if(darLado1()==darLado2() && darLado1()== darLado3()){
+        if(darLado()==darLado2() && darLado()== darLado3()){
             return "Triangulo Equilatero";
-        }else if(darLado1()==darLado2() || darLado2()==darLado3() || darLado1()==darLado3()){
+        }else if(darLado2()==darLado2() || darLado2()==darLado3() || darLado()==darLado3()){
             return "Triangulo Isoceles";
         }else {
             return "Triangulo Rectangulo";

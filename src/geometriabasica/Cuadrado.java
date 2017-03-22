@@ -33,7 +33,7 @@ public class Cuadrado extends PuntosPadre {
      */
     public void darResultadosCuadrado(){
         if(isCuadrado() == true){
-            System.out.println("Lado1: " + darLado1());
+            System.out.println("Lado1: " + darLado());
             System.out.println("Lado2: " + darLado2());
             System.out.println("Lado3: " + darLado3());
             System.out.println("Lado4: " + darLado4());
@@ -63,11 +63,9 @@ public class Cuadrado extends PuntosPadre {
      * METODO QUE RETORNA LA LONGITUD DEL LADO1 DEL PUNTO AB
      * @return 
      */
-    private double darLado1(){
-        double auxiliarX = Math.pow(punto2.getX() - punto1.getX(), 2);
-        double auxiliarY = Math.pow(punto2.getY() - punto1.getY(), 2);
-        double lado = Math.sqrt(auxiliarX +  auxiliarY);
-        return lado;
+    @Override
+    public double darLado(){
+         return super.darLado();
     }
      /**
      * METODO QUE RETORNA LA LONGITUD DEL LADO2 DEL PUNTO BC
@@ -104,7 +102,7 @@ public class Cuadrado extends PuntosPadre {
      * @return 
      */
     private double darPerimetro(){
-        this.perimetro=darLado1()+darLado2()+darLado3()+darLado4();
+        this.perimetro=darLado()+darLado2()+darLado3()+darLado4();
         return this.perimetro;
     }
     /**
@@ -112,7 +110,7 @@ public class Cuadrado extends PuntosPadre {
      * @return 
      */
     private double darArea(){
-        double area =darLado1()*darLado2();
+        double area =darLado()*darLado2();
         return area;
     }
     /**
@@ -120,7 +118,7 @@ public class Cuadrado extends PuntosPadre {
      * @return 
      */
     public String darTipoCuadro() {
-        if (darLado1() == darLado2() && darLado2() == darLado3() && darLado3() == darLado4()){
+        if (darLado() == darLado2() && darLado2() == darLado3() && darLado3() == darLado4()){
             return "Cuadrado";
         }else {
             return "Rectangulo";

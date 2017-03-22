@@ -19,6 +19,13 @@ public class PuntosPadre {
         this.punto2 = punto2;
     }
 
+    
+    public double darLado(){
+        double auxiliarX = Math.pow(punto1.getX() - punto2.getX(), 2);
+        double auxiliarY = Math.pow(punto1.getY() - punto2.getY(), 2);
+        double lado = Math.sqrt(auxiliarX +  auxiliarY);
+        return lado;
+    }
     public Coordenadas getPunto1() {
         return punto1;
     }

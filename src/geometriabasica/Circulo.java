@@ -9,7 +9,7 @@ package geometriabasica;
  * @author Cristian Estevez
  */
 public class Circulo extends PuntosPadre {
-    double radio;
+    double lado;
     double diametro;
     private final double pi=3.14159;
 
@@ -21,7 +21,7 @@ public class Circulo extends PuntosPadre {
      */
     public void darResultadosCirculo(){
         if(isCirculo()== true){
-            System.out.println("Longitud Radio : "+darRadio());
+            System.out.println("Longitud Radio : "+darLado());
             System.out.println("Longitud Diametro : "+darDiametro());
             System.out.println("Perimetro : "+darPerimetro());
             System.out.println("Area : "+darArea());
@@ -44,18 +44,16 @@ public class Circulo extends PuntosPadre {
      * METODO QUE RETORNA MEDIDA DEL RADIO DEL PUNTO AB
      * @return 
      */
-    private double darRadio(){
-        double auxiliarX=Math.pow((punto1.getX()-punto2.getX()), 2);
-        double auxiliarY=Math.pow((punto1.getY()-punto2.getY()), 2);
-        radio = Math.sqrt( auxiliarX + auxiliarY );
-        return radio;
+    @Override
+    public double darLado(){
+        return super.darLado();
     }
     /**
      * METODO QUE RETORNA DIAMETRO
      * @return 
      */
     private double darDiametro(){
-        diametro = radio * 2;
+        diametro = lado * 2;
         return diametro;
     } 
     /**
@@ -63,7 +61,7 @@ public class Circulo extends PuntosPadre {
      * @return 
      */
     private double darPerimetro(){
-        double perimetro = 2* pi * radio;
+        double perimetro = 2* pi * lado;
         return perimetro;
     }
     /**
